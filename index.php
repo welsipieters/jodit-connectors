@@ -1,4 +1,14 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
+// Handle preflight OPTIONS request
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    // Just send the headers if the request method is OPTIONS
+    exit(0);
+}
+
 define('JODIT_DEBUG', false);
 
 require_once __DIR__ . '/vendor/autoload.php';
